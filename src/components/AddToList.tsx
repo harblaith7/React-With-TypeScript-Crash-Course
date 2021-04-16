@@ -11,10 +11,11 @@ const AddToList: React.FC<IProps> = ({setPeople, people}) => {
     const [input, setInput] = useState({
         name: "",
         age: "",
-        note: ""
+        note: "",
+        img: ""
     }) 
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setInput({
             ...input,
             [e.target.name]: e.target.value
@@ -29,6 +30,7 @@ const AddToList: React.FC<IProps> = ({setPeople, people}) => {
             {
                 name: input.name,
                 age: parseInt(input.age),
+                img: input.img,
                 note: input.note
             }
         ]);
@@ -36,15 +38,17 @@ const AddToList: React.FC<IProps> = ({setPeople, people}) => {
         setInput({
             name: "",
             age: "",
+            img: "",
             note: ""
         })
     }
 
     return (
-        <div style={{display: "flex", flexDirection: "column", width: "30rem", margin: "5rem auto"}}>
+        <div className="AddToList">
             <input 
                 type="text"
                 onChange={handleChange}
+                className="AddToList-input"
                 name="name"
                 value={input.name}
                 placeholder="Name"
@@ -52,6 +56,7 @@ const AddToList: React.FC<IProps> = ({setPeople, people}) => {
             <input 
                 type="text"
                 onChange={handleChange}
+                className="AddToList-input"
                 name="age"
                 value={input.age}
                 placeholder="Age"
@@ -59,12 +64,21 @@ const AddToList: React.FC<IProps> = ({setPeople, people}) => {
             <input 
                 type="text"
                 onChange={handleChange}
+                className="AddToList-input"
+                name="img"
+                value={input.img}
+                placeholder="Image Url"
+            />
+            <textarea
+                onChange={handleChange}
+                className="AddToList-input"
                 name="note"
                 value={input.note}
                 placeholder="Note"
             />
             <button
                 onClick={handleClick}
+                className="AddToList-btn"
             >
                 Add to List
             </button>
