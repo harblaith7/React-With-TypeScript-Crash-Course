@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { IState as Props } from "../App";
+import {IPerson} from "../models/IPerson";
+
 
 interface IProps {
-    setPeople: React.Dispatch<React.SetStateAction<Props["people"]>>
-    people: Props["people"]
+    setPeople: React.Dispatch<React.SetStateAction<IPerson[]>>
+    people: IPerson[]
 }
 
 const AddToList: React.FC<IProps> = ({setPeople, people}) => {
@@ -32,7 +33,7 @@ const AddToList: React.FC<IProps> = ({setPeople, people}) => {
                 age: parseInt(input.age),
                 img: input.img,
                 note: input.note
-            }
+            } as IPerson
         ]);
 
         setInput({

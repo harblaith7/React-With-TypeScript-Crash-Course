@@ -3,20 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 import List from './components/List';
 import AddToList from './components/AddToList';
+import {IPerson} from "./models/IPerson";
 
-export interface IState {
-  people: {
-      name: string
-      age: number
-      img: string
-      note?: string
-  }[]
+interface IState {
+  people: IPerson[]
 }
 
 
 function App() {
 
-  const [people, setPeople] = useState<IState["people"]>([
+  const [people, setPeople] = useState<IPerson[]>([
     {
       name: "LeBron James",
       age: 35,
