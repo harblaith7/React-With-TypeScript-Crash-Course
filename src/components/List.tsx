@@ -1,8 +1,8 @@
 import React from 'react'
-import { IState as Props } from "../App";
+import {IPerson} from "../models/IPerson";
 
 interface IProps {
-    people: Props["people"]
+    people: IPerson[]
 }
 
 const List: React.FC<IProps> = ({ people }) => {
