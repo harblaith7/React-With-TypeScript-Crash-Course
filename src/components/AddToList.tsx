@@ -25,15 +25,7 @@ const AddToList: React.FC<IProps> = ({setPeople, people}) => {
     const handleClick = () => {
         if(!input.name || !input.age) return
 
-        setPeople([
-            ...people,
-            {
-                name: input.name,
-                age: parseInt(input.age),
-                img: input.img,
-                note: input.note
-            }
-        ]);
+        setPeople([ ...people, input]);
 
         setInput({
             name: "",
